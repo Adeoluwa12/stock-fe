@@ -469,7 +469,7 @@ function App() {
               <th>Elliott Wave</th>
               <th>Auto Chart</th>
               <th>All Chart</th>
-              <th>Market Cycle</th>
+              <th>Cycle</th>
               <th>Overall</th>
             </tr>
           </thead>

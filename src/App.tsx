@@ -30,7 +30,7 @@ const fetchData = async () => {
   setError(null)
   try {
     // Use environment variable or fallback to localhost for development
-    const apiUrl = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
+    const apiUrl = process.env.REACT_APP_API_URL || "https://stock-be-j9p2.onrender.com";
     const res = await fetch(`${apiUrl}/analyze?timeframe=${timeframe}`)
     if (!res.ok) {
       throw new Error(`Server responded with status: ${res.status}`)

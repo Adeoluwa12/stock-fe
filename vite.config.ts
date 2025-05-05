@@ -6,10 +6,15 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: '0.0.0.0', // This tells Vite to listen on all interfaces
-    port: 5173,      // You can keep your preferred port
+    port: 5173,  
+    cors: true,
   },
   preview: {
-    host: '0.0.0.0', // Ensure preview also listens on all interfaces
+    host: '0.0.0.0',
     port: 5173,
+    allowedHosts: ["my-stocks-s2at.onrender.com", "*.onrender.com"],
+
   }
 })
+
+

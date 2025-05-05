@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.5;
+}
+
+button {
+  font-family: inherit;
+  outline: none;
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Light/Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  .app-container {
+    color: #e0e0e0;
+  }
+
+  .subtitle,
+  .last-updated,
+  .pattern-name,
+  .info-item p {
+    color: #a0a0a0;
+  }
+
+  .timeframe-selector button {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+  }
+
+  .error-message {
+    background-color: rgba(198, 40, 40, 0.2);
+    color: #ff8a80;
+  }
+
+  .stock-table {
+    background-color: #1e1e1e;
+  }
+
+  .stock-table tr {
+    border-color: #333;
+  }
+
+  .stock-table tr:hover {
+    background-color: #252525;
+  }
+
+  .row-buy {
+    background-color: rgba(0, 200, 83, 0.1);
+  }
+
+  .row-sell {
+    background-color: rgba(244, 67, 54, 0.1);
+  }
+
+  .card {
+    background-color: #1e1e1e;
+  }
+
+  .info-item {
+    border-color: #333;
+  }
+
+  .info-item h3 {
+    color: #e0e0e0;
+  }
+
+  .info-item p {
+    color: #a0a0a0;
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, #2a2a2a 25%, #333 50%, #2a2a2a 75%);
+  }
+}

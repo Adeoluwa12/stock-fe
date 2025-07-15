@@ -434,9 +434,10 @@ const App: React.FC = () => {
       <div className="app">
         <div className="loading-container">
           <div className="loading-spinner"></div>
-          <p>Analyzing 20 stocks using multiple data sources...</p>
-          <p>This may take 3-5 minutes due to API rate limits.</p>
-          <p>Please be patient while we process all stocks...</p>
+          <p>Analyzing 175 stocks from US and Nigerian markets...</p>
+          <p>This process takes 15-25 minutes due to API rate limits.</p>
+          <p>Processing US stocks (Twelve Data) and Nigerian stocks (yfinance)...</p>
+          <p>Please keep this tab open and be patient.</p>
         </div>
       </div>
     )
@@ -461,11 +462,12 @@ const App: React.FC = () => {
     return (
       <div className="app">
         <div className="no-data-container">
-          <h2>Stock Analysis Dashboard</h2>
-          <p>Click the button below to start analyzing 20 stocks</p>
-          <p>⚠️ This process takes 3-5 minutes due to API rate limits</p>
+          <h2>Multi-Market Stock Analysis Dashboard</h2>
+          <p>Analyze 175 stocks from US and Nigerian markets</p>
+          <p>⚠️ This process takes 15-25 minutes due to API rate limits</p>
+          <p>📊 US Stocks: 20 | Nigerian Stocks: 155</p>
           <button onClick={fetchData} className="retry-button">
-            Start Analysis
+            Start Comprehensive Analysis
           </button>
         </div>
       </div>

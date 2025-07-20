@@ -1517,12 +1517,12 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, ReactNode } from "react"
 import "./App.css"
 
 // Update this to your actual Render URL
-const API_BASE_URL = "http://localhost:5000"
-// const API_BASE_URL = "https://stock-be-j9p2.onrender.com"
+// const API_BASE_URL = "http://localhost:5000"
+const API_BASE_URL = "https://stock-be-j9p2.onrender.com"
 
 interface StockData {
   PRICE: number
@@ -1606,6 +1606,7 @@ interface ApiResponse {
     coingecko_count: number
   }
   markets?: {
+    international_stocks: ReactNode
     us_stocks: number
     nigerian_stocks: number
     crypto_assets: number
@@ -2007,8 +2008,9 @@ const App: React.FC = () => {
       data_source: "loading",
       markets: {
         us_stocks: usStocks.length,
-        international_stocks: internationalStocks.length,
+        nigerian_stocks: internationalStocks.length,
         crypto_assets: cryptoStocks.length,
+        international_stocks: undefined
       },
       data_sources: {
         twelve_data_count: 0,

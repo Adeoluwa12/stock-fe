@@ -3396,14 +3396,25 @@ const App: React.FC = () => {
     }
   }, [])
 
-  const getNotAvailableMessage = (market: string, symbol: string) => {
+  const getNotAvailableMessage = (market: string, _symbol: string, timeframe?: string) => {
     if (market === "Nigerian") {
-      return "Historical data not available for Nigerian stocks via NaijaStocksAPI"
+      if (timeframe && timeframe !== "DAILY_TIMEFRAME") {
+        return "Historical data not available for Nigerian stocks via NaijaStocksAPI";
+      }
+      return "Data not available for this timeframe";
     }
     if (market === "Crypto") {
-      return "4-hour data not available via CryptoCompare free tier"
+      if (timeframe === "4HOUR_TIMEFRAME" || timeframe === "4hour" || timeframe === "4-hour") {
+        return "4-hour data not available via CryptoCompare free tier";
+      }
+      return "Data not available for this timeframe";
     }
-    return "Data not available for this timeframe"
+    if (market === "US") {
+      if (timeframe && (timeframe === "WEEKLY_TIMEFRAME" || timeframe === "MONTHLY_TIMEFRAME")) {
+        return "Insufficient historical data for this timeframe";
+      }
+    }
+    return "Data not available for this timeframe";
   }
 
   // Cleanup function
@@ -3719,7 +3730,7 @@ const App: React.FC = () => {
     return "change-neutral"
   }
 
-  const getAssetTypeIcon = (symbol: string, market: string) => {
+  const getAssetTypeIcon = (_symbol: string, market: string) => {
     if (market === "Crypto") return "₿"
     if (market === "Nigerian") return "🇳🇬"
     return "🇺🇸"

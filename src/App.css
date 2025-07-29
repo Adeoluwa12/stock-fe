@@ -82,6 +82,30 @@
   animation: pulse 2s infinite;
 }
 
+.connection-status {
+  background: rgba(72, 187, 120, 0.1);
+  color: #2f855a;
+  border-color: rgba(72, 187, 120, 0.3);
+}
+
+.status-connected {
+  background: rgba(72, 187, 120, 0.1);
+  color: #2f855a;
+  border-color: rgba(72, 187, 120, 0.3);
+}
+
+.status-connecting {
+  background: rgba(255, 193, 7, 0.1);
+  color: #b45309;
+  border-color: rgba(255, 193, 7, 0.3);
+}
+
+.status-error {
+  background: rgba(245, 101, 101, 0.1);
+  color: #c53030;
+  border-color: rgba(245, 101, 101, 0.3);
+}
+
 .data-note {
   margin-top: 20px;
   padding: 15px;
@@ -173,6 +197,12 @@
 
 .time-remaining {
   color: #718096;
+  font-style: italic;
+}
+
+.completion-message {
+  color: #38a169;
+  font-weight: 600;
   font-style: italic;
 }
 
@@ -335,6 +365,12 @@
   font-weight: 500;
 }
 
+.timeframe-note {
+  background: rgba(255, 193, 7, 0.1);
+  color: #b45309;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
 .stocks-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -360,6 +396,12 @@
 .stock-card.loading-card {
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.stock-card.not-available {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(160, 174, 192, 0.3);
+  opacity: 0.8;
 }
 
 .stock-header {
@@ -396,12 +438,12 @@
   color: #1d4ed8;
 }
 
-.data-source.alpha-vantage {
+.data-source.naijastocks {
   background: rgba(16, 185, 129, 0.1);
   color: #047857;
 }
 
-.data-source.coingecko {
+.data-source.cryptcompare {
   background: rgba(245, 158, 11, 0.1);
   color: #92400e;
 }
@@ -514,6 +556,15 @@
   padding: 25px;
   background: rgba(248, 250, 252, 0.5);
   animation: slideDown 0.3s ease-out;
+}
+
+.not-available-message {
+  text-align: center;
+  padding: 20px;
+  background: rgba(160, 174, 192, 0.1);
+  border-radius: 10px;
+  color: #4a5568;
+  font-style: italic;
 }
 
 .ai-analysis-section {
@@ -1071,6 +1122,16 @@
   line-height: 1.6;
 }
 
+.features-list {
+  margin: 20px 0;
+}
+
+.features-list p {
+  margin: 8px 0;
+  font-size: 1rem;
+  opacity: 0.95;
+}
+
 .primary-button,
 .secondary-button {
   padding: 15px 30px;
@@ -1092,9 +1153,15 @@
   box-shadow: 0 10px 25px rgba(72, 187, 120, 0.4);
 }
 
-.primary-button:hover {
+.primary-button:hover:not(:disabled) {
   transform: translateY(-3px);
   box-shadow: 0 15px 35px rgba(72, 187, 120, 0.5);
+}
+
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .secondary-button {
@@ -1103,9 +1170,15 @@
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-.secondary-button:hover {
+.secondary-button:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-3px);
+}
+
+.secondary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .note {

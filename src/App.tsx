@@ -1982,9 +1982,6 @@ const App: React.FC = () => {
     }
   }, [])
 
-  const fetchFinalData = useCallback(async () => {
-    await fetchFinalDataWithRetry()
-  }, [fetchFinalDataWithRetry])
 
   const startAnalysis = useCallback(
     async (fresh = false) => {

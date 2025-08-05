@@ -1382,7 +1382,7 @@ import "./App.css"
 
 // Update to your actual API URL
 // const API_BASE_URL = "http://localhost:5000"
-const API_BASE_URL = "https://stocks-be-grm6.onrender.com"
+const API_BASE_URL = "https://stocks-be-47is.onrender.com"
 
 interface StockData {
   PRICE: number

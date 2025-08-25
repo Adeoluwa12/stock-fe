@@ -1478,7 +1478,7 @@ interface ApiResponse {
   }
   markets?: {
     us_stocks: number
-    nigerian_stocks: number
+    // nigerian_stocks: number
     crypto_assets: number
   }
   processing_info?: {
@@ -1589,62 +1589,62 @@ const US_STOCKS = [
 ]
 
 // UPDATED: Exact Nigerian stocks list from backend (45 stocks)
-const NIGERIAN_STOCKS = [
-  // Banks (Tier 1)
-  "ACCESS",
-  "GTCO",
-  "UBA",
-  "ZENITHBANK",
-  "FBNH",
-  "STERLNBANK",
-  "FIDELITYBK",
-  "WEMABANK",
-  "UNIONBANK",
-  "ECOBANK",
-  "FCMB",
-  "JAIZBANK",
-  "SUNUBANK",
-  "PROVIDUSBANK",
-  "POLARIS",
-  // Industrial/Cement/Construction
-  "DANGCEM",
-  "BUACEMENT",
-  "WAPCO",
-  "LAFARGE",
-  "CUTIX",
-  "BERGER",
-  "JBERGER",
-  "MEYER",
-  // Consumer Goods/Food & Beverages
-  "DANGSUGAR",
-  "NASCON",
-  "FLOURMILL",
-  "HONEYFLOUR",
-  "CADBURY",
-  "NESTLE",
-  "UNILEVER",
-  "GUINNESS",
-  "NB",
-  "CHAMPION",
-  "VITAFOAM",
-  "PZ",
-  // Oil & Gas
-  "SEPLAT",
-  "TOTAL",
-  "OANDO",
-  "CONOIL",
-  "ETERNA",
-  "FORTE",
-  "JAPAULGOLD",
-  "MRS",
-  // Telecom & Technology
-  "MTNN",
-  "AIRTELAFRI",
-  "IHS",
-  // Others
-  "TRANSCORP",
-  "LIVESTOCK",
-]
+// const NIGERIAN_STOCKS = [
+//   // Banks (Tier 1)
+//   "ACCESS",
+//   "GTCO",
+//   "UBA",
+//   "ZENITHBANK",
+//   "FBNH",
+//   "STERLNBANK",
+//   "FIDELITYBK",
+//   "WEMABANK",
+//   "UNIONBANK",
+//   "ECOBANK",
+//   "FCMB",
+//   "JAIZBANK",
+//   "SUNUBANK",
+//   "PROVIDUSBANK",
+//   "POLARIS",
+//   // Industrial/Cement/Construction
+//   "DANGCEM",
+//   "BUACEMENT",
+//   "WAPCO",
+//   "LAFARGE",
+//   "CUTIX",
+//   "BERGER",
+//   "JBERGER",
+//   "MEYER",
+//   // Consumer Goods/Food & Beverages
+//   "DANGSUGAR",
+//   "NASCON",
+//   "FLOURMILL",
+//   "HONEYFLOUR",
+//   "CADBURY",
+//   "NESTLE",
+//   "UNILEVER",
+//   "GUINNESS",
+//   "NB",
+//   "CHAMPION",
+//   "VITAFOAM",
+//   "PZ",
+//   // Oil & Gas
+//   "SEPLAT",
+//   "TOTAL",
+//   "OANDO",
+//   "CONOIL",
+//   "ETERNA",
+//   "FORTE",
+//   "JAPAULGOLD",
+//   "MRS",
+//   // Telecom & Technology
+//   "MTNN",
+//   "AIRTELAFRI",
+//   "IHS",
+//   // Others
+//   "TRANSCORP",
+//   "LIVESTOCK",
+// ]
 
 // UPDATED: Exact crypto list from backend (25 assets)
 const CRYPTO_STOCKS = [
@@ -1678,11 +1678,11 @@ const CRYPTO_STOCKS = [
   "ETC",
 ]
 
-const ALL_SYMBOLS = [...US_STOCKS, ...NIGERIAN_STOCKS, ...CRYPTO_STOCKS]
+const ALL_SYMBOLS = [...US_STOCKS, ...CRYPTO_STOCKS]
 
 const getMarketForSymbol = (symbol: string) => {
   if (CRYPTO_STOCKS.includes(symbol)) return "Crypto"
-  if (NIGERIAN_STOCKS.includes(symbol)) return "Nigerian"
+  // if (NIGERIAN_STOCKS.includes(symbol)) return "Nigerian"
   if (US_STOCKS.includes(symbol)) return "US"
   return "Unknown"
 }
@@ -1696,7 +1696,7 @@ const getDataSourceForSymbol = (symbol: string, actualDataSource?: string) => {
 
   // Otherwise, predict based on symbol type
   if (CRYPTO_STOCKS.includes(symbol)) return "yfinance" // Primary for crypto
-  if (NIGERIAN_STOCKS.includes(symbol)) return "tradingview_scraper" // Primary for Nigerian
+  // if (NIGERIAN_STOCKS.includes(symbol)) return "tradingview_scraper" // Primary for Nigerian
   if (US_STOCKS.includes(symbol)) return "yfinance" // Primary for US
   return "unknown"
 }
@@ -1836,7 +1836,7 @@ const App: React.FC = () => {
       data_source: "loading",
       markets: {
         us_stocks: US_STOCKS.length,
-        nigerian_stocks: NIGERIAN_STOCKS.length,
+        // nigerian_stocks: NIGERIAN_STOCKS.length,
         crypto_assets: CRYPTO_STOCKS.length,
       },
       // UPDATED: New data source structure
@@ -1857,7 +1857,7 @@ const App: React.FC = () => {
         ai_analysis_available: true,
         background_processing: true,
         daily_auto_refresh: "5:00 PM",
-        primary_data_source: "yfinance for US/Crypto, TradingView Scraper for Nigerian stocks",
+        primary_data_source: "yfinance for US/Crypto",
         ai_provider: "Groq (Llama3-8B)",
         expanded_coverage: "120 total assets with multiple Nigerian data sources",
         data_source_strategy: "US/Crypto: yfinance → TwelveData, Nigerian: Multiple sources → Synthetic",
@@ -2907,7 +2907,7 @@ const App: React.FC = () => {
   const groupStocksByMarket = () => {
     const grouped = {
       US: [...US_STOCKS],
-      Nigerian: [...NIGERIAN_STOCKS],
+      // Nigerian: [...NIGERIAN_STOCKS],
       Crypto: [...CRYPTO_STOCKS],
     }
     return grouped
@@ -2928,7 +2928,7 @@ const App: React.FC = () => {
           {data?.markets && (
             <>
               <span>US: {data.markets.us_stocks}</span>
-              <span>Nigerian: {data.markets.nigerian_stocks}</span>
+              {/* <span>Nigerian: {data.markets.nigerian_stocks}</span> */}
               <span>Crypto: {data.markets.crypto_assets}</span>
             </>
           )}
@@ -3028,7 +3028,7 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <div className="market-section">
+        {/* <div className="market-section">
           <div className="market-header">
             <h2>🇳🇬 Nigerian Stocks ({groupedStocks.Nigerian.length})</h2>
             <div className="market-stats">
@@ -3041,7 +3041,7 @@ const App: React.FC = () => {
           <div className="stocks-container">
             {groupedStocks.Nigerian.map((symbol) => renderStockCard(symbol, data ? data[symbol] : undefined))}
           </div>
-        </div>
+        </div> */}
 
         <div className="market-section">
           <div className="market-header">
@@ -3064,3 +3064,5 @@ const App: React.FC = () => {
 }
 
 export default App
+
+
